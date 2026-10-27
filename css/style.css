@@ -78,3 +78,58 @@ h1 em.title-shine{color:var(--gold);background-image:linear-gradient(110deg,#e5b
 .site-footer{background:linear-gradient(180deg,var(--fade-dark) 0,var(--navy) var(--fade))}
 @media(max-width:540px){:root{--fade:70px}
 }
+
+/* Profundidade nos cards claros */
+.offer-card{border:1px solid #1a1a1a38;box-shadow:inset 0 1px 0 #fff,0 2px 4px #0b234214,0 12px 26px #0b23421f,0 30px 60px #0b234214}
+.testimonial-card,.gallery-slide{border:1px solid #050e1a;box-shadow:0 0 0 1px #f3c87326,0 3px 6px #0004,0 14px 32px #0006}
+
+/* Detalhes natalinos discretos nas laterais das seções */
+:root{
+--snow-gold:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%23f3c873' stroke-width='1.6' stroke-linecap='round'%3E%3Cg id='a'%3E%3Cpath d='M20 3v34M20 9l-4-4M20 9l4-4M20 31l-4 4M20 31l4 4'/%3E%3C/g%3E%3Cuse href='%23a' transform='rotate(60 20 20)'/%3E%3Cuse href='%23a' transform='rotate(120 20 20)'/%3E%3C/svg%3E");
+--spark-gold:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23f3c873' d='M20 2C21 14 26 19 38 20 26 21 21 26 20 38 19 26 14 21 2 20 14 19 19 14 20 2Z'/%3E%3C/svg%3E");
+--snow-navy:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%230b2342' stroke-width='1.6' stroke-linecap='round'%3E%3Cg id='a'%3E%3Cpath d='M20 3v34M20 9l-4-4M20 9l4-4M20 31l-4 4M20 31l4 4'/%3E%3C/g%3E%3Cuse href='%23a' transform='rotate(60 20 20)'/%3E%3Cuse href='%23a' transform='rotate(120 20 20)'/%3E%3C/svg%3E");
+--spark-navy:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%230b2342' d='M20 2C21 14 26 19 38 20 26 21 21 26 20 38 19 26 14 21 2 20 14 19 19 14 20 2Z'/%3E%3C/svg%3E");
+--deco-w:min(230px,18vw)}
+.meaning,.materials,.offer-section,.testimonials,.guarantee,.faq{position:relative;isolation:isolate;overflow:hidden}
+.meaning:before,.meaning:after,.materials:before,.materials:after,.offer-section:before,.offer-section:after,.testimonials:before,.testimonials:after,.guarantee:before,.guarantee:after,.faq:before,.faq:after{content:"";position:absolute;top:0;bottom:0;width:var(--deco-w);z-index:-1;pointer-events:none;background-repeat:no-repeat}
+.meaning:before,.materials:before,.offer-section:before,.testimonials:before,.guarantee:before,.faq:before{left:0;background-position:28% 10%,72% 24%,18% 56%,64% 74%,36% 92%;background-size:44px,20px,30px,14px,24px}
+.meaning:after,.materials:after,.offer-section:after,.testimonials:after,.guarantee:after,.faq:after{right:0;background-position:70% 16%,26% 38%,78% 64%,34% 82%,62% 46%;background-size:34px,16px,48px,22px,12px}
+.materials:before,.materials:after,.testimonials:before,.testimonials:after,.guarantee:before,.guarantee:after{background-image:var(--snow-gold),var(--spark-gold),var(--snow-gold),var(--spark-gold),var(--snow-gold);opacity:.16}
+.meaning:before,.meaning:after,.offer-section:before,.offer-section:after,.faq:before,.faq:after{background-image:var(--snow-navy),var(--spark-navy),var(--snow-navy),var(--spark-navy),var(--snow-navy);opacity:.09}
+@media(max-width:800px){:root{--deco-w:90px}
+.meaning:before,.materials:before,.offer-section:before,.testimonials:before,.guarantee:before,.faq:before,.meaning:after,.materials:after,.offer-section:after,.testimonials:after,.guarantee:after,.faq:after{background-size:26px,12px,18px,10px,14px}
+.materials:before,.materials:after,.testimonials:before,.testimonials:after,.guarantee:before,.guarantee:after{opacity:.1}
+.meaning:before,.meaning:after,.offer-section:before,.offer-section:after,.faq:before,.faq:after{opacity:.06}
+}
+
+/* Seção de venda compacta, com contorno forte e relevo */
+.offer-section.section-space{padding:56px 0}
+.offer-grid{gap:60px}
+.offer-story>img{width:300px}
+.offer-card{padding:26px 28px 24px;border:1px solid #1a1a1a3d;box-shadow:inset 0 1px 0 #fff,0 3px 0 #e3d7c2,0 14px 30px #0b234221,0 32px 64px #0b234214}
+.offer-label{margin-bottom:12px}
+.offer-subtitle{margin-bottom:14px}
+.offer-divider{margin-bottom:14px}
+.offer-list{grid-template-columns:1fr 1fr;gap:7px 14px;margin-bottom:16px}
+.offer-list li{font-size:12px;line-height:1.4}
+.price{line-height:1.05}
+.cash{margin-bottom:10px}
+.savings{margin:0 0 4px}
+.offer-card .purchase-button{margin:16px 0 10px}
+.offer-card .secure{margin:8px 0 0}
+@media(max-width:800px){.offer-grid{gap:24px}
+.offer-card{padding:22px 18px 20px}
+}
+@media(max-width:540px){.offer-section.section-space{padding:40px 0}
+.offer-story>img{width:180px}
+.offer-story h2{margin-bottom:12px}
+.offer-list{grid-template-columns:1fr;gap:6px}
+.offer-list li{font-size:12px}
+.price{font-size:68px}
+}
+
+/* Barra de oferta no topo */
+.promo-bar{background:var(--gold);color:#152a3b;text-align:center;font-size:13px;font-weight:700;letter-spacing:.3px;padding:8px 16px}
+.promo-bar b{display:inline-block;min-width:52px;margin-left:6px;padding:2px 8px;border-radius:5px;background:var(--navy);color:var(--gold);font-variant-numeric:tabular-nums}
+@media(max-width:540px){.promo-bar{font-size:12px;padding:7px 12px}
+}

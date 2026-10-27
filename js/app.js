@@ -5,23 +5,21 @@
 })();
 
 (() => {
-  // Fim da promoção de outubro: 31/10 às 23:59:59 (horário de Brasília)
-  const deadline = new Date('2026-10-31T23:59:59-03:00').getTime();
-  const boxes = document.querySelectorAll('.promo-countdown');
-  const outputs = document.querySelectorAll('[data-countdown]');
+  // Contador de 15 minutos da barra do topo; mantém o tempo ao recarregar a página
+  const output = document.querySelector('[data-timer]');
+  if (!output) return;
+  const duration = 15 * 60 * 1000;
+  let start = Date.now();
+  try {
+    const saved = Number(localStorage.getItem('offer-timer-start'));
+    if (saved && saved <= start) start = saved;
+    else localStorage.setItem('offer-timer-start', String(start));
+  } catch (e) {}
   const pad = n => String(n).padStart(2, '0');
   const tick = () => {
-    const left = deadline - Date.now();
-    if (left <= 0) {
-      boxes.forEach(box => { box.hidden = true; });
-      return false;
-    }
-    const s = Math.floor(left / 1000);
-    const days = Math.floor(s / 86400);
-    const text = `${days > 0 ? days + 'd ' : ''}${pad(Math.floor(s % 86400 / 3600))}h ${pad(Math.floor(s % 3600 / 60))}m ${pad(s % 60)}s`;
-    outputs.forEach(out => { out.textContent = text; });
-    boxes.forEach(box => { box.hidden = false; });
-    return true;
+    const left = Math.max(0, Math.ceil((start + duration - Date.now()) / 1000));
+    output.textContent = `${pad(Math.floor(left / 60))}:${pad(left % 60)}`;
+    return left > 0;
   };
   if (tick()) {
     const timer = setInterval(() => { if (!tick()) clearInterval(timer); }, 1000);
